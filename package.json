@@ -1,0 +1,31 @@
+{
+  "name": "spreadsheets-vue",
+  "version": "0.0.1",
+  "description": "A library with various functions and Vue components to ease translation from spreadsheets into maintainable software",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "lint": "eslint --ext .js,.ts src",
+    "prettier": "prettier --write src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BLumbye/spreadsheets-vue.git"
+  },
+  "keywords": [
+    "spreadsheets",
+    "vue"
+  ],
+  "author": "Benjamin Lumbye & Victor Rasmussen",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/BLumbye/spreadsheets-vue/issues"
+  },
+  "homepage": "https://github.com/BLumbye/spreadsheets-vue#readme",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4"
+  }
+}
