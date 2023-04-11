@@ -7,8 +7,6 @@
  * @param n2 Number of observations in group 2.
  * @returns The t value. A larger value indicates a more significant difference between the groups.
  */
-function t_test(x1: number, x2: number, s: number, n1: number, n2: number) {
+export function t_test(x1: number, x2: number, s: number, n1: number, n2: number) {
   return (x1 - x2) / Math.sqrt(Math.pow(s, 2) * (1 / n1 + 1 / n2));
 }
-
-export default { t_test };

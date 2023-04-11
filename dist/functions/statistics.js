@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.t_test = void 0;
 /**
  * Calculates the true difference between two given group means using the ratio of the difference in the group means over the pooled standard error of the groups.
  * @param x1 Mean of group 1.
@@ -12,4 +13,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function t_test(x1, x2, s, n1, n2) {
     return (x1 - x2) / Math.sqrt(Math.pow(s, 2) * (1 / n1 + 1 / n2));
 }
-exports.default = { t_test };
+exports.t_test = t_test;

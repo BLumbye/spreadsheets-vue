@@ -1,3 +1,2 @@
-import functions from './functions';
-
-export default { ...functions };
+export * from './functions';
+export * from './exporting';

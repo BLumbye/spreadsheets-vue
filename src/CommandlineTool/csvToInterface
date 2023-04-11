@@ -1,0 +1,47 @@
+function csvToInterface<T>(csv: string): string {
+  const [headerRow, dataRow] = csv.trim().split('\n');
+  const headers = headerRow.split(',');
+
+  const data = dataRow.split(',');
+
+  let interfaceStr = 'interface MyInterface {\n';
+
+  for (let i = 0; i < headers.length; i++) {
+    const header = headers[i].trim();
+    const field = header.replace(/ /g, '');
+    const value = Number(data[i]) || `"${data[i].trim()}"`;
+
+    interfaceStr += `\t${field}: ${typeof value};\n`;
+  }
+
+  interfaceStr += '}';
+
+  return interfaceStr;
+}
+
+/* Example of use */
+
+import { tableToCsv } from '../exporting';
+
+const headers = {
+  broker: 'Broker',
+  commodity: 'Commodity',
+  dailyDealCount: 'Daily Deal Count',
+  ltdDealCount: 'LTD Deal Count',
+};
+
+interface Commodity {
+  broker: string;
+  commodity: string;
+  dailyDealCount: number;
+  ltdDealCount: number;
+}
+
+const r1: Commodity = { broker: 'APB Energy Inc.', commodity: 'U.S. Nat Gas', dailyDealCount: 4, ltdDealCount: 6 };
+const r2: Commodity = { commodity: 'U.S. Nat Gas', broker: 'APB Energy Inc.', dailyDealCount: 2, ltdDealCount: 7 };
+
+let csv = tableToCsv([r1], headers);
+console.log(csv);
+console.log(csvToInterface(csv));
+
+/* End of example */

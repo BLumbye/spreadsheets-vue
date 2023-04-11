@@ -7,8 +7,4 @@
  * @param n2 Number of observations in group 2.
  * @returns The t value. A larger value indicates a more significant difference between the groups.
  */
-declare function t_test(x1: number, x2: number, s: number, n1: number, n2: number): number;
-declare const _default: {
-    t_test: typeof t_test;
-};
-export default _default;
+export declare function t_test(x1: number, x2: number, s: number, n1: number, n2: number): number;
