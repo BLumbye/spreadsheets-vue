@@ -1,3 +1,11 @@
+/**
+ * This function gratly simplifies the process of creating an interface from a csv string.
+ * It assumes that the first row of the csv is the header row and the second row is the data row.
+ * It also assumes that the csv is comma delimited.
+ * @param csv The csv string to convert to an interface.
+ * @returns A string that represents the interface.
+ */
+
 function csvToInterface<T>(csv: string): string {
   const [headerRow, dataRow] = csv.trim().split('\n');
   const headers = headerRow.split(',');
