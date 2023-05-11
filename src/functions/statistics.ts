@@ -81,12 +81,3 @@ export function Quartiles(a: number[]): { q1: number | null, q2: number | null, 
 
   return { q1, q2, q3 };
 }
-
-function Ifs(){
-  if(2>1){
-    if(1<2){
-      return true;
-    }
-  }
-}
-

@@ -28,6 +28,31 @@ function SortedList(list: (string | number)[], option?: sortOption): (string | n
   return clonedList;
 }
 
+
+/**
+ * Returns an array where the specified part of the array is sorted. 
+ * Sort ascendingly by default.
+ * @param arr 
+ * @param startIndex 
+ * @param endIndex 
+ * @param descending Optional sorting option
+ */
+function sortRange<T>(arr: T[], startIndex: number, endIndex: number, descending?: boolean): T[] {
+  if (startIndex < 0 || endIndex >= arr.length || startIndex >= endIndex) {
+    throw new Error('Invalid range specified');
+  }
+
+  const range = arr.slice(startIndex, endIndex + 1);
+  range.sort();
+  if(descending) range.reverse();
+
+  for (let i = startIndex, j = 0; i <= endIndex; i++, j++) {
+    arr[i] = range[j];
+  }
+
+  return arr;
+}
+
 /* Example */
 
 var stringArray: string[] = ['2', '3', '4', '1', '5', '8', '11', '-3', '9.2'];
@@ -47,14 +72,7 @@ var stringArray2: string[] = [
   '01010',
   'Infinity',
   '-Infinity',
-];
+]; 
 
-// console.log('Original:', stringArray);
-// console.log('Built-in:', [...stringArray].sort());
-// console.log('Numerically:', SortedList(stringArray, sortOption.Numerically));
-// console.log('Alphabetically:', SortedList(stringArray, sortOption.Alphabetically));
-
-// console.log('Original:', stringArray2);
-// console.log('Built-in:', [...stringArray2].sort());
-// console.log('Numerically:', SortedList(stringArray2, sortOption.Numerically));
-// console.log('Alphabetically:', SortedList(stringArray2, sortOption.Alphabetically));
+console.log(SortedList(stringArray)); // [ '-3', '1', '11', '2', '3', '4', '5', '8', '9.2' ]
+console.log(SortedList(stringArray2)); // [ '-3', '01010', '1', '11', '2 yes', '2no', '22', '3', '4', '9.2', '9,3', 'Infinity', 'afro', 'e', 'john', 'student' ]
