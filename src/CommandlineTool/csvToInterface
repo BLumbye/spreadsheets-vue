@@ -1,6 +1,6 @@
 /**
  * Returns a string that represents an interface based on the given csv string.
- * This function gratly simplifies the process of creating an interface from a csv string.
+ * This function greatly simplifies the process of creating an interface from a csv string.
  * It assumes that the first row of the csv is the header row and the second row is the data row.
  * It also assumes that the csv is comma delimited.
  * It names the interface MyInterface by default but the property names are based on the header row.

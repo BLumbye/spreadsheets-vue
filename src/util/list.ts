@@ -4,7 +4,7 @@
  * @param startIndex 
  * @param endIndex 
  */
-function GetInnerRange<T>(arr: T[], startIndex: number, endIndex: number): T[] {
+function innerRange<T>(arr: T[], startIndex: number, endIndex: number): T[] {
   if (startIndex < 0 || endIndex >= arr.length || startIndex > endIndex) {
     throw new Error('Invalid start or end index');
   }
@@ -22,7 +22,7 @@ function GetInnerRange<T>(arr: T[], startIndex: number, endIndex: number): T[] {
  * Returns the number of elements in the array that are not empty (null, undefined or '' ).
  * @param arr 
  */
-function GetEmptyElements<T>(arr: T[]): number {
+function emptyElements<T>(arr: T[]): number {
   let count = 0;
   
   for (const element of arr) {
@@ -39,7 +39,7 @@ function GetEmptyElements<T>(arr: T[]): number {
  * @param arr 
  * @param value 
  */
-function GetExactMatches<T>(arr: T[], value: T): number {
+function exactMatches<T>(arr: T[], value: T): number {
   let count = 0;
   
   for (const element of arr) {
@@ -56,7 +56,7 @@ function GetExactMatches<T>(arr: T[], value: T): number {
  * @param arr 
  * @param value 
  */
-function GetTypeMatches<T>(arr: T[], value: T): number {
+function typeMatches<T>(arr: T[], value: T): number {
   let count = 0;
   
   for (const element of arr) {
@@ -73,6 +73,6 @@ function GetTypeMatches<T>(arr: T[], value: T): number {
  * Flattens a 2D array into a 1D array.
  * @param arr 
  */
-function Flatten<T>(arr: T[][]): T[] {
+function flatten<T>(arr: T[][]): T[] {
   return arr.reduce((result, current) => result.concat(current), []);
 }

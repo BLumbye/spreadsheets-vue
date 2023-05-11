@@ -6,8 +6,9 @@ interface sortOption {
 /**
  * Returns a sorted list.
  * Can be sorted numerically or alphabetically.
+ * Sort ascending by default. 
  */
-function SortedList(list: (string | number)[], option?: sortOption): (string | number)[] {
+function sortedList(list: (string | number)[], option?: sortOption): (string | number)[] {
   let clonedList = [...list];
   const numbers = clonedList.filter((val) => !Number.isNaN(Number(val)));
   const nonNumbers = clonedList.filter((val) => Number.isNaN(Number(val)));

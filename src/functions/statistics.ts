@@ -7,31 +7,15 @@
  * @param n2 Number of observations in group 2.
  * @returns The t value. A larger value indicates a more significant difference between the groups.
  */
-export function Simple_t_test(x1: number, x2: number, s: number, n1: number, n2: number) {
+export function simple_T_Test(x1: number, x2: number, s: number, n1: number, n2: number) {
   return (x1 - x2) / Math.sqrt(Math.pow(s, 2) * (1 / n1 + 1 / n2));
-}
-
-/**
- * Returns the mean of the given array.
- * @param a The array to calculate the mean of.
- */
-export function Mean(a: number[]){
-  return Sum(a) / a.length;
-}
-
-/**
- *  Returns the sum of the given array.
- * @param a  The array to calculate the sum of.
- */
-export function Sum(a: number[]){
-  return a.reduce((acc, val) => acc + val, 0);
 }
 
 /**
  *  Returns the median of the given array. Assumes the array is sorted
  * @param a The array to calculate the median of.
  */
-export function Median(a: number[]): number | null {
+export function median(a: number[]): number | null {
   if (a.length === 0) {
     return null; // Return null for an empty array
   }
@@ -52,13 +36,13 @@ export function Median(a: number[]): number | null {
  * Assumes the array is sorted.
  * @param a The array to calculate the quartiles of.
  */
-export function Quartiles(a: number[]): { q1: number | null, q2: number | null, q3: number | null } {
+export function quartiles(a: number[]): { q1: number | null, q2: number | null, q3: number | null } {
   if (a.length === 0) {
     return { q1: null, q2: null, q3: null }; // Return null for an empty array
   }
   const middleIndex = Math.floor(a.length / 2);
 
-  const q2 = Median(a);
+  const q2 = median(a);
 
   let q1: number | null;
   let q3: number | null;
@@ -68,16 +52,23 @@ export function Quartiles(a: number[]): { q1: number | null, q2: number | null, 
     const lowerHalf = a.slice(0, middleIndex);
     const upperHalf = a.slice(middleIndex);
 
-    q1 = Median(lowerHalf);
-    q3 = Median(upperHalf);
+    q1 = median(lowerHalf);
+    q3 = median(upperHalf);
   } else {
     // If the array length is odd
     const lowerHalf = a.slice(0, middleIndex);
     const upperHalf = a.slice(middleIndex + 1);
 
-    q1 = Median(lowerHalf);
-    q3 = Median(upperHalf);
+    q1 = median(lowerHalf);
+    q3 = median(upperHalf);
   }
 
   return { q1, q2, q3 };
 }
+
+/* Examples */
+
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(median(a)); // 5
+console.log(quartiles(a)); // { q1: 2, q2: 5, q3: 8 }
