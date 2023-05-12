@@ -1,8 +1,8 @@
-/** 
+/**
  * Returns a subarray (list) of the given array from the start index to the end index (exclusive).
- * @param arr 
- * @param startIndex 
- * @param endIndex 
+ * @param arr
+ * @param startIndex
+ * @param endIndex
  */
 function GetInnerRange<T>(arr: T[], startIndex: number, endIndex: number): T[] {
   if (startIndex < 0 || endIndex >= arr.length || startIndex > endIndex) {
@@ -20,58 +20,57 @@ function GetInnerRange<T>(arr: T[], startIndex: number, endIndex: number): T[] {
 
 /**
  * Returns the number of elements in the array that are not empty (null, undefined or '' ).
- * @param arr 
+ * @param arr
  */
 function GetEmptyElements<T>(arr: T[]): number {
   let count = 0;
-  
+
   for (const element of arr) {
     if (element !== null && element !== undefined && element !== '') {
       count++;
     }
   }
-  
+
   return count;
 }
 
 /**
  * Returns the number of elements in the array that exactly match the given parameter.
- * @param arr 
- * @param value 
+ * @param arr
+ * @param value
  */
 function GetExactMatches<T>(arr: T[], value: T): number {
   let count = 0;
-  
+
   for (const element of arr) {
     if (element === value) {
       count++;
     }
   }
-  
+
   return count;
 }
 
 /**
  * Returns the number of elements in the array that are of the same type as the given parameter.
- * @param arr 
- * @param value 
+ * @param arr
+ * @param value
  */
 function GetTypeMatches<T>(arr: T[], value: T): number {
   let count = 0;
-  
+
   for (const element of arr) {
     if (typeof element === typeof value) {
       count++;
     }
   }
-  
+
   return count;
 }
 
-
 /**
  * Flattens a 2D array into a 1D array.
- * @param arr 
+ * @param arr
  */
 function Flatten<T>(arr: T[][]): T[] {
   return arr.reduce((result, current) => result.concat(current), []);
