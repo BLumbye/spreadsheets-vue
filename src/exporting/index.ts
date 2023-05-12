@@ -1,8 +1,16 @@
 import transpose from '../util/transpose';
 
+/** Direction of list */
 interface ListToCsvOptions {
   header?: string;
   direction?: 'vertical' | 'horizontal';
+}
+
+interface TableToCsvOptions {
+  direction?: 'vertical' | 'horizontal';
+  nested?: boolean;
+  /** The key of the property that contains the group title. Only used if nested is true. */
+  groupKey?: string;
 }
 
 /**
@@ -16,12 +24,6 @@ export function listToCsv(list: unknown[], options?: ListToCsvOptions): string {
   return (options?.header ? [options.header, ...list] : list).join(options?.direction === 'horizontal' ? ',' : '\n');
 }
 
-interface TableToCsvOptions {
-  direction?: 'vertical' | 'horizontal';
-  nested?: boolean;
-  /** The key of the property that contains the group title. Only used if nested is true. */
-  groupKey?: string;
-}
 
 function isTableNested<T extends Record<keyof T, unknown>>(
   table: T[] | { items: T[]; [key: string]: any }[],
@@ -51,7 +53,7 @@ function isTableNested<T extends Record<keyof T, unknown>>(
  * @param table
  * @param headers
  * @param options
- * @returns
+ * @returns A CSV string
  */
 export function tableToCsv<T extends Record<keyof T, unknown>>(
   table: T[] | { items: T[]; [key: string]: any }[],

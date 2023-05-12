@@ -1,7 +1,9 @@
 /**
- * This function gratly simplifies the process of creating an interface from a csv string.
+ * Returns a string that represents an interface based on the given csv string.
+ * This function greatly simplifies the process of creating an interface from a csv string.
  * It assumes that the first row of the csv is the header row and the second row is the data row.
  * It also assumes that the csv is comma delimited.
+ * It names the interface MyInterface by default but the property names are based on the header row.
  * @param csv The csv string to convert to an interface.
  * @returns A string that represents the interface.
  */
@@ -49,7 +51,7 @@ const r1: Commodity = { broker: 'APB Energy Inc.', commodity: 'U.S. Nat Gas', da
 const r2: Commodity = { commodity: 'U.S. Nat Gas', broker: 'APB Energy Inc.', dailyDealCount: 2, ltdDealCount: 7 };
 
 let csv = tableToCsv([r1], headers);
-console.log(csv);
-console.log(csvToInterface(csv));
+console.log(csv);                   // Broker,Commodity,Daily Deal Count,LTD Deal Count\nAPB Energy Inc.,U.S. Nat Gas,4,6
+console.log(csvToInterface(csv));   // interface MyInterface { broker: string; commodity: string; dailyDealCount: number; ltdDealCount: number; }
 
 /* End of example */
