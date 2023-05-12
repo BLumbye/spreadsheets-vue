@@ -8,7 +8,7 @@ interface sortOption {
  * Can be sorted numerically or alphabetically.
  * Sort ascending by default. 
  */
-function sortedList(list: (string | number)[], option?: sortOption): (string | number)[] {
+export function sortList(list: (string | number)[], option?: sortOption): (string | number)[] {
   let clonedList = [...list];
   const numbers = clonedList.filter((val) => !Number.isNaN(Number(val)));
   const nonNumbers = clonedList.filter((val) => Number.isNaN(Number(val)));
@@ -38,7 +38,7 @@ function sortedList(list: (string | number)[], option?: sortOption): (string | n
  * @param endIndex 
  * @param descending Optional sorting option
  */
-function sortRange<T>(arr: T[], startIndex: number, endIndex: number, descending?: boolean): T[] {
+export function sortRange<T>(arr: T[], startIndex: number, endIndex: number, descending?: boolean): T[] {
   if (startIndex < 0 || endIndex >= arr.length || startIndex >= endIndex) {
     throw new Error('Invalid range specified');
   }
@@ -75,5 +75,5 @@ var stringArray2: string[] = [
   '-Infinity',
 ]; 
 
-console.log(SortedList(stringArray)); // [ '-3', '1', '11', '2', '3', '4', '5', '8', '9.2' ]
-console.log(SortedList(stringArray2)); // [ '-3', '01010', '1', '11', '2 yes', '2no', '22', '3', '4', '9.2', '9,3', 'Infinity', 'afro', 'e', 'john', 'student' ]
+console.log(sortList(stringArray)); // [ '-3', '1', '11', '2', '3', '4', '5', '8', '9.2' ]
+console.log(sortList(stringArray2)); // [ '-3', '01010', '1', '11', '2 yes', '2no', '22', '3', '4', '9.2', '9,3', 'Infinity', 'afro', 'e', 'john', 'student' ]
