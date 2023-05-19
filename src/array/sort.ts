@@ -53,27 +53,3 @@ export function sortRange<T>(arr: T[], startIndex: number, endIndex: number, des
 
   return arr;
 }
-
-/* Example */
-
-var stringArray: string[] = ['2', '3', '4', '1', '5', '8', '11', '-3', '9.2'];
-var stringArray2: string[] = [
-  'john',
-  '3',
-  '4',
-  'afro',
-  '22',
-  '-3',
-  'student',
-  '2no',
-  '2 yes',
-  '9.2',
-  '9,3',
-  'e',
-  '01010',
-  'Infinity',
-  '-Infinity',
-]; 
-
-console.log(sortList(stringArray)); // [ '-3', '1', '11', '2', '3', '4', '5', '8', '9.2' ]
-console.log(sortList(stringArray2)); // [ '-3', '01010', '1', '11', '2 yes', '2no', '22', '3', '4', '9.2', '9,3', 'Infinity', 'afro', 'e', 'john', 'student' ]

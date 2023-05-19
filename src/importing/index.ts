@@ -49,9 +49,3 @@ function parseValue(value: string): string | number | Date | boolean {
 
   return value; // String value if no other type applies
 }
-
-
-/* Examples */
-
-let csv = "2, TRUE, John";
-console.log(parseCSV(csv)); // [2, true, "John"]

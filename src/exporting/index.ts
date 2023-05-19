@@ -1,5 +1,6 @@
 import { transpose } from '../array/transformations';
 import { NestedTable, Table } from '../types';
+import { saveAs } from 'file-saver';
 
 /** Direction of list */
 interface ListToCsvOptions {
@@ -83,4 +84,7 @@ export function tableToCsv(
   return lines.map((line) => line.join(',')).join('\n');
 }
 
-export function saveCsv(csv: string, fileName: string): void { }
+export function saveCsv(csv: string, fileName: string): void {
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  saveAs(blob, fileName);
+}

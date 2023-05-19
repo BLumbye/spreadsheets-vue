@@ -1,3 +1,3 @@
-export * from './predicates';
+export * from './extensions';
 export * from './sort';
 export * from './transformations';

@@ -7,7 +7,7 @@
         :contenteditable="editable">{{ modelValue }}</span>
   <span v-else-if="(type || typeof modelValue) === 'number' && mode === 'normal'"
         @input="$emit('update:modelValue', Number(($event.target as HTMLSpanElement).innerText))"
-        @beforeinput="isNumber($event as InputEvent)"
+        @beforeinput="validate(isNumber())"
         :contenteditable="editable">{{ modelValue }}</span>
   <input v-else-if="(type || typeof modelValue) === 'string' && mode === 'input'"
          :value="modelValue"
@@ -17,7 +17,7 @@
   <input v-else-if="(type || typeof modelValue) === 'number' && mode === 'input'"
          :value="modelValue"
          @input="$emit('update:modelValue', Number(($event.target as HTMLInputElement).value))"
-         @beforeinput="isNumber($event as InputEvent)"
+         @beforeinput="validate(isNumber())"
          :disabled="!editable"
          inputmode="decimal"
          type="text" />
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { isNumber } from '..';
+import { isNumber, validate } from '..';
 
 const props = defineProps<{
   /**

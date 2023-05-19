@@ -22,7 +22,7 @@ declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_T
     /**
      * The list to be displayed.
      */
-    list: string[] | number[] | boolean[];
+    list: boolean[] | string[] | number[];
     /**
      * The type of the list.
      */
@@ -36,7 +36,7 @@ declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_T
     add: (item: string | number | boolean) => void;
     remove: (item: string | number | boolean) => void;
     edit: (item: string | number | boolean, index: number) => void;
-    sort: (list: string[] | number[] | boolean[]) => void;
+    sort: (list: boolean[] | string[] | number[]) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
     /**
      * Whether the list should be editable.
@@ -57,7 +57,7 @@ declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_T
     /**
      * The list to be displayed.
      */
-    list: string[] | number[] | boolean[];
+    list: boolean[] | string[] | number[];
     /**
      * The type of the list.
      */
@@ -70,7 +70,7 @@ declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_T
 }>>> & {
     onRemove?: ((item: string | number | boolean) => any) | undefined;
     onEdit?: ((item: string | number | boolean, index: number) => any) | undefined;
-    onSort?: ((list: string[] | number[] | boolean[]) => any) | undefined;
+    onSort?: ((list: boolean[] | string[] | number[]) => any) | undefined;
     onAdd?: ((item: string | number | boolean) => any) | undefined;
 }, {
     editable: boolean;
