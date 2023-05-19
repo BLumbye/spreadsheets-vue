@@ -1,9 +1,13 @@
-import { ListItem } from './SpreadsheetList.vue';
+import { TableRow } from './SpreadsheetTable.vue';
 declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimeProps<{
     /**
      * The item to be displayed.
      */
-    item: ListItem;
+    row: TableRow;
+    /**
+     * The headers to be displayed.
+     */
+    headers: Record<string, string>;
     /**
      * Whether the item is editable.
      */
@@ -21,13 +25,17 @@ declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimePr
      */
     mode: "input" | "normal";
 }>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    remove: (item: ListItem) => void;
-    edit: (item: ListItem) => void;
+    remove: (row: TableRow) => void;
+    edit: (row: TableRow, key: string, value: any) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     /**
      * The item to be displayed.
      */
-    item: ListItem;
+    row: TableRow;
+    /**
+     * The headers to be displayed.
+     */
+    headers: Record<string, string>;
     /**
      * Whether the item is editable.
      */
@@ -45,8 +53,8 @@ declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimePr
      */
     mode: "input" | "normal";
 }>>> & {
-    onRemove?: ((item: ListItem) => any) | undefined;
-    onEdit?: ((item: ListItem) => any) | undefined;
+    onRemove?: ((row: TableRow) => any) | undefined;
+    onEdit?: ((row: TableRow, key: string, value: any) => any) | undefined;
 }, {}>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;

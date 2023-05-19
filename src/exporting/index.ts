@@ -1,4 +1,5 @@
-import transpose from '../util/transpose';
+import { transpose } from '../array/transformations';
+import { NestedTable, Table } from '../types';
 
 /** Direction of list */
 interface ListToCsvOptions {
@@ -24,11 +25,10 @@ export function listToCsv(list: unknown[], options?: ListToCsvOptions): string {
   return (options?.header ? [options.header, ...list] : list).join(options?.direction === 'horizontal' ? ',' : '\n');
 }
 
-
-function isTableNested<T extends Record<keyof T, unknown>>(
-  table: T[] | { items: T[]; [key: string]: any }[],
+function isTableNested(
+  table: Table,
   options?: TableToCsvOptions,
-): table is { items: T[]; [key: string]: any }[] {
+): table is NestedTable {
   if (options?.nested) return options.nested;
 
   // Try to detect whether the table is nested or not
@@ -55,9 +55,9 @@ function isTableNested<T extends Record<keyof T, unknown>>(
  * @param options
  * @returns A CSV string
  */
-export function tableToCsv<T extends Record<keyof T, unknown>>(
-  table: T[] | { items: T[]; [key: string]: any }[],
-  headers: Record<keyof T, string>,
+export function tableToCsv(
+  table: Table,
+  headers: Record<string, string>,
   options?: TableToCsvOptions,
 ): string {
   let lines = [];
@@ -65,14 +65,14 @@ export function tableToCsv<T extends Record<keyof T, unknown>>(
 
   if (!isTableNested(table, options)) {
     for (let row of table) {
-      lines.push(Object.keys(headers).map((key) => row[key as keyof T]));
+      lines.push(Object.keys(headers).map((key) => row[key]));
     }
   } else {
     for (let group of table) {
       for (let row of group.items) {
         lines.push(
           Object.keys(headers).map((key) =>
-            key === options?.groupKey ? group[options.groupKey] : row[key as keyof T],
+            key === options?.groupKey ? group[options.groupKey] : row[key],
           ),
         );
       }

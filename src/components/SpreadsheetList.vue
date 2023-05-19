@@ -5,7 +5,7 @@
   <List editable="false" sortable="true" removable="false" addable="false" :list="someStore.someList" /> 
 -->
 <template>
-  <div class="list">
+  <div class="spreadsheet-list">
     <div class="list-items"
          v-if="!sortable">
       <ListItem v-for="(item, index) in internalList"

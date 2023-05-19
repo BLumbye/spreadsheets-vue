@@ -1,6 +1,14 @@
+import { Table } from '../types';
+/** Direction of list */
 interface ListToCsvOptions {
     header?: string;
     direction?: 'vertical' | 'horizontal';
+}
+interface TableToCsvOptions {
+    direction?: 'vertical' | 'horizontal';
+    nested?: boolean;
+    /** The key of the property that contains the group title. Only used if nested is true. */
+    groupKey?: string;
 }
 /**
  * Converts a list to a CSV string
@@ -10,12 +18,6 @@ interface ListToCsvOptions {
  *  @param ListToCsvOptions (optional) Whether to append the CSV file with a header and whether to arrange the data horizontally. Default is vertically.
  */
 export declare function listToCsv(list: unknown[], options?: ListToCsvOptions): string;
-interface TableToCsvOptions {
-    direction?: 'vertical' | 'horizontal';
-    nested?: boolean;
-    /** The key of the property that contains the group title. Only used if nested is true. */
-    groupKey?: string;
-}
 /**
  * Converts a table to a CSV string.
  * It supports normal tables as well as nested tables, and will try to automatically determine the type, though it can be overwritten through the options.
@@ -23,11 +25,8 @@ interface TableToCsvOptions {
  * @param table
  * @param headers
  * @param options
- * @returns
+ * @returns A CSV string
  */
-export declare function tableToCsv<T extends Record<keyof T, unknown>>(table: T[] | {
-    items: T[];
-    [key: string]: any;
-}[], headers: Record<keyof T, string>, options?: TableToCsvOptions): string;
+export declare function tableToCsv(table: Table, headers: Record<string, string>, options?: TableToCsvOptions): string;
 export declare function saveCsv(csv: string, fileName: string): void;
 export {};

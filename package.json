@@ -23,7 +23,8 @@
     "watch:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist --watch",
     "watch": "concurrently \"npm:watch:*\"",
     "lint": "eslint --ext .js,.ts src",
-    "prettier": "prettier --write src"
+    "prettier": "prettier --write src",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",

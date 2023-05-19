@@ -1,5 +1,6 @@
 import { describe, it } from 'vitest';
 import { listToCsv, tableToCsv } from '../src';
+import { Table } from '../src/types';
 
 describe('lists', () => {
   it('normal', ({ expect }) => {
@@ -86,7 +87,7 @@ describe('tables', () => {
       match3gf: 'Match 3 GF',
       match3ga: 'Match 3 GA',
     };
-    expect(tableToCsv<Scoreboard>(table, headers, { groupKey: 'year' })).toBe(
+    expect(tableToCsv(table, headers, { groupKey: 'year' })).toBe(
       'Year,Country,Match 1 GF,Match 1 GA,Match 2 GF,Match 2 GA,Match 3 GF,Match 3 GA\n2008,Germany,2,0,1,2,1,0\n2008,Spain,4,1,2,1,2,1\n2012,Italy,1,1,1,1,2,0\n2012,Spain,1,1,4,0,1,0',
     );
   });

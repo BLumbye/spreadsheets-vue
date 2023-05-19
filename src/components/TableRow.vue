@@ -1,11 +1,12 @@
 <!-- 
-  This component is used to display a single item in the list.
-  It is used by the SpreadsheetList component.
+  This component is used to display a single row in a table.
+  It is used by the SpreadsheetTable component.
  -->
 <template>
-  <div class="list-item">
-    <div class="sorting-handle"
-         v-if="sortable"><svg xmlns="http://www.w3.org/2000/svg"
+  <tr class="table-row">
+    <td class="sorting-handle"
+        v-if="sortable">
+      <svg xmlns="http://www.w3.org/2000/svg"
            width="24"
            height="24"
            viewBox="0 0 24 24"
@@ -30,38 +31,49 @@
         <path fill-rule="evenodd"
               clip-rule="evenodd"
               d="M8 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
-      </svg></div>
-    <SpreadsheetCell :editable="editable"
-                     :mode="mode"
-                     :model-value="item.value"
-                     @update:model-value="$emit('edit', { id: item.id, value: $event })"
-                     class="spreadsheet-cell" />
-    <button v-if="removable"
-            class="remove-button"
-            @click="$emit('remove', item)"><svg xmlns="http://www.w3.org/2000/svg"
-           width="20"
-           height="20"
-           viewBox="0 0 24 24"
-           fill="none"
-           stroke="currentColor"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           class="ai ai-Cross">
-        <path d="M20 20L4 4m16 0L4 20" />
-      </svg></button>
-  </div>
+      </svg>
+    </td>
+    <td v-for="header of Object.keys(headers)">
+      <SpreadsheetCell :editable="editable"
+                       :mode="mode"
+                       :model-value="row.value[header]"
+                       @update:model-value="$emit('edit', row, header, $event)"
+                       class="spreadsheet-cell" />
+    </td>
+    <td>
+      <button v-if="removable"
+              class="remove-button"
+              @click="$emit('remove', row)">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="20"
+             height="20"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="ai ai-Cross">
+          <path d="M20 20L4 4m16 0L4 20" />
+        </svg>
+      </button>
+    </td>
+  </tr>
 </template>
 
 <script setup lang="ts">
-import { ListItem } from './SpreadsheetList.vue';
 import SpreadsheetCell from './SpreadsheetCell.vue';
+import { TableRow } from './SpreadsheetTable.vue';
 
 const props = defineProps<{
   /**
    * The item to be displayed.
    */
-  item: ListItem;
+  row: TableRow;
+  /**
+   * The headers to be displayed.
+   */
+  headers: Record<string, string>;
   /**
    * Whether the item is editable.
    */
@@ -84,21 +96,12 @@ const emit = defineEmits<{
   /**
    * Emitted when this item is removed from the list.
    */
-  (e: 'remove', item: ListItem): void;
+  (e: 'remove', row: TableRow): void;
   /**
    * Emitted when this item is edited.
    */
-  (e: 'edit', item: ListItem): void;
+  (e: 'edit', row: TableRow, key: string, value: any): void;
 }>();
 </script>
 
-<style scoped lang="postcss">
-:where(.list-item) {
-  display: flex;
-  gap: 0.5rem;
-
-  :where(.spreadsheet-cell) {
-    flex: 1;
-  }
-}
-</style>
+<style scoped lang="postcss"></style>

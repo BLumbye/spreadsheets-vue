@@ -1,3 +1,6 @@
+<!-- 
+  Creates an input field. The input field can either be a text input, a number input or a checkbox for booleans.
+ -->
 <template>
   <span v-if="(type || typeof modelValue) === 'string' && mode === 'normal'"
         @input="$emit('update:modelValue', ($event.target as HTMLSpanElement).innerText)"
@@ -21,20 +24,30 @@
   <input v-else-if="(type || typeof modelValue) === 'boolean'"
          :checked="(modelValue as boolean)"
          @input="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
-         type="checkbox" />
+         type="checkbox"
+         :disabled="!editable" />
+  <span v-else>Unsupported type</span>
 </template>
 
 <script setup lang="ts">
 import { isNumber } from '..';
 
-/**
- * Creates an input field. The input field can either be a text input, a number input or a checkbox for booleans.
- */
-
 const props = defineProps<{
+  /**
+   * Whether the cell is editable.
+   */
   editable: boolean;
+  /**
+   * The current mode of the cell.
+   */
   mode: 'input' | 'normal';
+  /**
+   * The value of the cell.
+   */
   modelValue: string | number | boolean;
+  /**
+   * The type of the cell.
+   */
   type?: 'string' | 'number' | 'boolean';
 }>();
 

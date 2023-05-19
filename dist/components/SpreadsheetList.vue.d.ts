@@ -68,10 +68,10 @@ declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_T
     removable: boolean;
     addable: boolean;
 }>>> & {
-    onSort?: ((list: string[] | number[] | boolean[]) => any) | undefined;
-    onAdd?: ((item: string | number | boolean) => any) | undefined;
     onRemove?: ((item: string | number | boolean) => any) | undefined;
     onEdit?: ((item: string | number | boolean, index: number) => any) | undefined;
+    onSort?: ((list: string[] | number[] | boolean[]) => any) | undefined;
+    onAdd?: ((item: string | number | boolean) => any) | undefined;
 }, {
     editable: boolean;
     sortable: boolean;
