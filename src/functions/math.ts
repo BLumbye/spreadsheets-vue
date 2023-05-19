@@ -2,7 +2,8 @@
  * Returns the mean of the given array.
  * @param a The array to calculate the mean of.
  */
-export function arrayMean(a: number[]){
+export function arrayMean(a: number[]) {
+  if (a.length == 0) return 0;
   return arraySum(a) / a.length;
 }
 
@@ -10,7 +11,7 @@ export function arrayMean(a: number[]){
  *  Returns the sum of the given array.
  * @param a  The array to calculate the sum of.
  */
-export function arraySum(a: number[]){
+export function arraySum(a: number[]) {
   return a.reduce((acc, val) => acc + val, 0);
 }
 

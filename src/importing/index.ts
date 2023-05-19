@@ -27,6 +27,8 @@ export function parseCSV(csvString: string) {
  */
 function parseValue(value: string): string | number | Date | boolean {
 
+  if (value === '') return '';
+
   const numValue = Number(value);
   if (!isNaN(numValue)) {
     return numValue; // Numeric value

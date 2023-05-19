@@ -83,4 +83,4 @@ export function tableToCsv(
   return lines.map((line) => line.join(',')).join('\n');
 }
 
-export function saveCsv(csv: string, fileName: string): void {}
+export function saveCsv(csv: string, fileName: string): void { }
