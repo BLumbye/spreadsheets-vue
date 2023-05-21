@@ -6727,7 +6727,7 @@ const T0 = { errors: Pe, symbols: vi }, fl = /* @__PURE__ */ Object.freeze(/* @_
   ZTEST: _u,
   utils: T0
 }, Symbol.toStringTag, { value: "Module" })), ul = {
-  install(n) {
+  install: (n) => {
     n.component(
       "SpreadsheetList",
       Xr(() => import("./SpreadsheetList-12ab2245.js"))
