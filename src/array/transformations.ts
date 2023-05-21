@@ -7,8 +7,8 @@ export function flatten<T>(arr: T[][]): T[] {
 }
 
 /**
- * Transposes a matrix
- * @param matrix
+ * Transposes a matrix (2D array).
+ * @param matrix The matrix to transpose.
  */
 export function transpose<T>(matrix: T[][]): T[][] {
   return matrix[0].map((_, i) => matrix.map((row) => row[i]));

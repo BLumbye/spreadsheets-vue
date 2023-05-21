@@ -25,6 +25,7 @@ export const isEmpty = () => (element: any) => {
 
 /**
  * A predicate that sees if an element is an exact match. To be used together with array functions, such as `count` or `filter` or validation.
+ * @param value The value to match against.
  */
 export const isEqual = (value: any) => (element: any) => {
   return element === value;
@@ -32,6 +33,7 @@ export const isEqual = (value: any) => (element: any) => {
 
 /**
  * A predicate that sees if an elements type is the same as another. To be used together with array functions, such as `count` or `filter` or validation.
+ * @param value The value to match against.
  */
 export const isTypeMatch = (value: any) => (element: any) => {
   return typeof element === typeof value;

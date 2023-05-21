@@ -19,10 +19,12 @@ export declare const or: (...predicates: ((element: any) => boolean)[]) => (elem
 export declare const isEmpty: () => (element: any) => boolean;
 /**
  * A predicate that sees if an element is an exact match. To be used together with array functions, such as `count` or `filter` or validation.
+ * @param value The value to match against.
  */
 export declare const isEqual: (value: any) => (element: any) => boolean;
 /**
  * A predicate that sees if an elements type is the same as another. To be used together with array functions, such as `count` or `filter` or validation.
+ * @param value The value to match against.
  */
 export declare const isTypeMatch: (value: any) => (element: any) => boolean;
 /**

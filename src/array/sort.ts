@@ -1,15 +1,23 @@
-interface sortOption {
+interface SortOptions {
+  /**
+   * Whether to sort numbers before text.
+   */
   numbersFirst?: boolean;
+  /**
+   * Whether to sort in descending order.
+   */
   descending?: boolean;
 }
 
 /**
- * Returns a sorted list.
+ * Returns a sorted array.
  * Can be sorted numerically or alphabetically.
- * Sort ascending by default. 
+ * Sorts ascending by default.
+ * @param array The array to be sorted.
+ * @param option Optional sorting options.
  */
-export function sortList(list: (string | number)[], option?: sortOption): (string | number)[] {
-  let clonedList = [...list];
+export function sortArray(array: (string | number)[], option?: SortOptions): (string | number)[] {
+  let clonedList = [...array];
   const numbers = clonedList.filter((val) => !Number.isNaN(Number(val)));
   const nonNumbers = clonedList.filter((val) => Number.isNaN(Number(val)));
 
@@ -32,11 +40,11 @@ export function sortList(list: (string | number)[], option?: sortOption): (strin
 
 /**
  * Returns an array where the specified part of the array is sorted. 
- * Sort ascendingly by default.
- * @param arr 
- * @param startIndex 
- * @param endIndex 
- * @param descending Optional sorting option
+ * Sorts ascending by default.
+ * @param arr The array to be sorted.
+ * @param startIndex The start index of the range to be sorted.
+ * @param endIndex The end index of the range to be sorted.
+ * @param descending Whether to sort in descending order.
  */
 export function sortRange<T>(arr: T[], startIndex: number, endIndex: number, descending?: boolean): T[] {
   if (startIndex < 0 || endIndex >= arr.length || startIndex >= endIndex) {

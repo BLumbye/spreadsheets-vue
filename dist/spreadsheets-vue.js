@@ -6771,7 +6771,7 @@ export {
   $0 as or,
   L0 as parseCSV,
   m0 as saveCsv,
-  A0 as sortList,
+  A0 as sortArray,
   R0 as sortRange,
   ul as spreadsheetsPlugin,
   O0 as tableToCsv,

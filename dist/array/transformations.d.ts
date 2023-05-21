@@ -4,7 +4,7 @@
  */
 export declare function flatten<T>(arr: T[][]): T[];
 /**
- * Transposes a matrix
- * @param matrix
+ * Transposes a matrix (2D array).
+ * @param matrix The matrix to transpose.
  */
 export declare function transpose<T>(matrix: T[][]): T[][];

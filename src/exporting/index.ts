@@ -84,6 +84,11 @@ export function tableToCsv(
   return lines.map((line) => line.join(',')).join('\n');
 }
 
+/**
+ * Creates a CSV file from the given CSV string and makes the browser download it.
+ * @param csv The CSV string to save
+ * @param fileName The name of the file to save
+ */
 export function saveCsv(csv: string, fileName: string): void {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   saveAs(blob, fileName);

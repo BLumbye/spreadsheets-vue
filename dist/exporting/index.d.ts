@@ -28,5 +28,10 @@ export declare function listToCsv(list: unknown[], options?: ListToCsvOptions): 
  * @returns A CSV string
  */
 export declare function tableToCsv(table: Table, headers: Record<string, string>, options?: TableToCsvOptions): string;
+/**
+ * Creates a CSV file from the given CSV string and makes the browser download it.
+ * @param csv The CSV string to save
+ * @param fileName The name of the file to save
+ */
 export declare function saveCsv(csv: string, fileName: string): void;
 export {};
