@@ -6726,14 +6726,16 @@ const T0 = { errors: Pe, symbols: vi }, fl = /* @__PURE__ */ Object.freeze(/* @_
   Z: yr,
   ZTEST: _u,
   utils: T0
-}, Symbol.toStringTag, { value: "Module" })), ul = (n) => {
-  n.component(
-    "SpreadsheetList",
-    Xr(() => import("./SpreadsheetList-12ab2245.js"))
-  ), n.component(
-    "SpreadsheetTable",
-    Xr(() => import("./SpreadsheetTable-0fe1ef57.js"))
-  );
+}, Symbol.toStringTag, { value: "Module" })), ul = {
+  install(n) {
+    n.component(
+      "SpreadsheetList",
+      Xr(() => import("./SpreadsheetList-12ab2245.js"))
+    ), n.component(
+      "SpreadsheetTable",
+      Xr(() => import("./SpreadsheetTable-0fe1ef57.js"))
+    );
+  }
 };
 export {
   Q0 as and,
@@ -6773,7 +6775,7 @@ export {
   m0 as saveCsv,
   A0 as sortArray,
   R0 as sortRange,
-  ul as spreadsheetsPlugin,
+  ul as spreadsheets,
   O0 as tableToCsv,
   De as transpose,
   il as validate

@@ -7,13 +7,15 @@ export * from './validation';
 
 export * as formula from '@formulajs/formulajs';
 
-export const spreadsheetsPlugin = (app: App) => {
-  app.component(
-    'SpreadsheetList',
-    defineAsyncComponent(() => import('./components/SpreadsheetList.vue')),
-  );
-  app.component(
-    'SpreadsheetTable',
-    defineAsyncComponent(() => import('./components/SpreadsheetTable.vue')),
-  );
+export const spreadsheets = {
+  install(app: App) {
+    app.component(
+      'SpreadsheetList',
+      defineAsyncComponent(() => import('./components/SpreadsheetList.vue')),
+    );
+    app.component(
+      'SpreadsheetTable',
+      defineAsyncComponent(() => import('./components/SpreadsheetTable.vue')),
+    );
+  }
 };
