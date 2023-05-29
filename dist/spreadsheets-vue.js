@@ -6733,7 +6733,7 @@ const T0 = { errors: Pe, symbols: vi }, fl = /* @__PURE__ */ Object.freeze(/* @_
       Xr(() => import("./SpreadsheetList-12ab2245.js"))
     ), n.component(
       "SpreadsheetTable",
-      Xr(() => import("./SpreadsheetTable-0fe1ef57.js"))
+      Xr(() => import("./SpreadsheetTable-f8db5c95.js"))
     );
   }
 };

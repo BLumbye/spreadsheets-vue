@@ -65,21 +65,23 @@
                          :type="types[key]"
                          class="add-input" />
       </td>
-      <button class="add-button"
-              @click="addItem">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="20"
-             height="20"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="ai ai-Plus">
-          <path d="M12 20v-8m0 0V4m0 8h8m-8 0H4" />
-        </svg>
-      </button>
+      <td>
+        <button class="add-button"
+                @click="addItem">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="20"
+               height="20"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               class="ai ai-Plus">
+            <path d="M12 20v-8m0 0V4m0 8h8m-8 0H4" />
+          </svg>
+        </button>
+      </td>
     </tfoot>
   </table>
 </template>

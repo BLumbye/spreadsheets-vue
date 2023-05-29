@@ -170,10 +170,12 @@ const O = { class: "table-row" }, R = {
             class: "add-input"
           }, null, 8, ["modelValue", "onUpdate:modelValue", "type"])
         ]))), 256)),
-        i("button", {
-          class: "add-button",
-          onClick: C
-        }, K)
+        i("td", null, [
+          i("button", {
+            class: "add-button",
+            onClick: C
+          }, K)
+        ])
       ])) : m("", !0)
     ]));
   }
